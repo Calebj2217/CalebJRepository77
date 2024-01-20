@@ -1,0 +1,44 @@
+
+h1 {
+  color: green;
+  margin-left: 10px;  
+}
+
+body {
+
+    background-color: aqua;
+}
+   
+
+ #introduction{
+   color: blue;
+   text-align:right;
+   border: 2px solid black
+   margin auto;
+   padding: 10px;
+
+/* Nav Properties */
+nav {
+  height: 6000px;
+  width: 200px;
+  float: left;
+  padding: 5px;
+  line-height: 30px;
+}
+
+/* Footer Properties */
+footer {
+  text-align: center;
+  margin-right: 200px;
+}
+
+/* memeImage Properties */
+#memeImage {
+  margin-right: 200px;
+}
+
+/* Header Properties */
+header {
+  text-align: center;
+}
+{}:link> rel= "stylesheet" href="main.css"
