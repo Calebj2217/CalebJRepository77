@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('rocky.jpeg'); /* Replace 'background.jpg' with your image file */
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+h1 {
+    color: #333;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Green button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.result-text {
+    font-size: 18px;
+    margin-top: 20px;
+}
