@@ -1,0 +1,109 @@
+<!-- Created by [Caleb Jackson] -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #7de6eb;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        #submit-btn {
+            padding: 10px 20px;
+            margin: 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #submit-btn:hover {
+            background-color: #45a049;
+        }
+        #message-container {
+            display: none;
+            margin-top: 50px;
+        }
+        #secret-message {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 14, 14, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Secret Message Portal</h1>
+    <!-- Form to collect user input -->
+    <form id="input-form">
+        <input type="text" id="first-name" placeholder="First Name">
+        <input type="text" id="last-name" placeholder="Last Name">
+        <input type="text" id="zip-code" placeholder="Zip Code">
+        <button type="submit" id="submit-btn">Submit</button>
+    </form>
+
+    <!-- Container to display the secret message -->
+    <div id="message-container">
+        <div id="secret-message">
+            <!-- The secret message will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Function to check if a string has more than 20 characters
+        function isValidLength(str) {
+            return str.length <= 20;
+        }
+
+        // Function to check if a zip code is valid (exactly 5 digits)
+        function isValidZipCode(zip) {
+            return /^\d{5}$/.test(zip);
+        }
+
+        // Event listener for form submission
+        document.getElementById('input-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get user input values
+            var firstName = document.getElementById('first-name').value;
+            var lastName = document.getElementById('last-name').value;
+            var zipCode = document.getElementById('zip-code').value;
+
+            // Combine first name and last name
+            var fullName = firstName + ' ' + lastName;
+
+            // Check if full name has more than 20 characters
+            if (!isValidLength(fullName)) {
+                alert('Your name must be 20 characters or less.');
+                return; // Exit the function if invalid
+            }
+
+            // Check if zip code is valid
+            if (!isValidZipCode(zipCode)) {
+                alert('Please enter a valid 5-digit zip code.');
+                return; // Exit the function if invalid
+            }
+
+            // If inputs are valid, display the secret message
+            document.getElementById('secret-message').innerText = 'Congratulations, ' + fullName + '! You have unlocked the secret message: "You must dig deep to where the sun and the moon meet."';
+            document.getElementById('message-container').style.display = 'block'; // Show the message container
+        });
+    </script>
+</body>
+</html>
