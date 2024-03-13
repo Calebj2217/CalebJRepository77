@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moving Dog</title>
+  
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background-color: #ff00d9;
+    }
+    #memeImage {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .button {
+      position: center;
+      padding: 50px 50px;
+      background-color: #c3ff00;
+      color: #000000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  
+  <button id="startButton" class="button" onclick="startMoving()">Start</button>
+  
+  
+  <button id="stopButton" class="button" onclick="stopMoving()">Stop</button>
+
+  <!-- Meme image -->
+  <img id="memeImage" src="button/dog meeme.jpg" alt="Meme Image" width="200">
+  
+  <script>
+    
+    function startMoving() {
+      // Disable Start button
+      document.getElementById('startButton').disabled = true;
+      // Enable Stop button
+      document.getElementById('stopButton').disabled = false;
+      // Call function to move meme image
+      moveMeme();
+    }
+
+    // 
+    function stopMoving() {
+      // Disable Stop button
+      document.getElementById('stopButton').disabled = false;
+      // Enable Start button
+      document.getElementById('startButton').disabled = false;
+      // The function to stop the button
+      stopMeme();
+    }
+
+    
+function moveMeme() {
+  // Get the meme image element
+  var memeImage = document.getElementById('memeImage');
+
+
+  var topPosition = 0;
+  var leftPosition = 0;
+
+
+  var movementInterval = setInterval(function() {
+    // Update position
+    topPosition += 5; // Increment by 5 pixels vertically
+    leftPosition += 5; // Increment by 5 pixels horizontally
+
+    // Apply new position
+    memeImage.style.top = topPosition + 'px';
+    memeImage.style.left = leftPosition + 'px';
+
+    // Check if image reached the end of the page
+    if (topPosition >= window.innerHeight || leftPosition >= window.innerWidth) {
+      // Reset image position
+      topPosition = 0;
+      leftPosition = 0;
+    }
+  }, 100); // Move every 100 milliseconds 
+}
+
+
+function stopMeme() {
+  clearInterval(movementInterval);
+}
+  </script>
+</body>
+</html>
