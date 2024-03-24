@@ -1,0 +1,86 @@
+<!-- Caleb Jackson] -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Palindrome Checker</title>
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #16b0c1;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #102286;
+            margin-top: 0;
+        }
+        img {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Palindrome Checker</h1>
+    
+    <img src="stringss/CPVH.gif" alt="Image 1">
+
+    
+    <img src="stringss/CPVH.gif" alt="Image 2">
+    <script>
+        // Function to check if a string is a palindrome
+        function isPalindrome(str) {
+            // Remove spaces and convert to lowercase
+            str = str.replace(/\s/g, '').toLowerCase();
+            // Reverse the string
+            const reversedStr = str.split('').reverse().join('');
+            // Check if the original string is equal to the reversed string
+            return str === reversedStr;
+        }
+
+        
+        function checkPalindrome() {
+            // Initialize variable to control the loop
+            let continueLoop = true;
+            
+            // Loop until user decides to stop
+            while (continueLoop) {
+                // Prompt user for a string
+                const inputStr = prompt("Enter a word or phrase:");
+
+                // Check if the input string is a palindrome
+                if (isPalindrome(inputStr)) {
+                    alert(`"${inputStr}" is a palindrome!`);
+                } else {
+                    alert(`"${inputStr}" is not a palindrome.`);
+                }
+
+                // Ask user if they want to continue
+                const continueInput = confirm("Do you want to enter another word?");
+                
+                // If user doesn't want to continue, exit the loop
+                if (!continueInput) {
+                    continueLoop = false;
+                }
+            }
+        }
+
+        
+        checkPalindrome();
+    </script>
+</body>
+</html>
